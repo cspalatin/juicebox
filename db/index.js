@@ -65,6 +65,19 @@ async function getAllUsers() {
   }
 }
 
+async function getAllTags() {
+  try {
+    const { rows } = await client.query(`
+      SELECT * 
+      FROM tags;
+    `);
+
+    return rows;
+  } catch (error) {
+    throw error;
+  }
+}
+
 async function getUserById(userId) {
   try {
     const {
@@ -336,15 +349,5 @@ module.exports = {
   getPostsByUser,
   addTagsToPost,
   getPostsByTagName,
+  getAllTags,
 };
-
-//////////////////////
-//TUESDAY 4-20-21//
-/////////////////////
-// const PORT = 3000;
-// const express = require('express');
-// const server = express();
-
-// server.listen(PORT, () => {
-//   console.log('The server is up on port', PORT)
-// });
