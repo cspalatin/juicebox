@@ -19,12 +19,6 @@ usersRouter.use((req, res, next) => {
   next();
 });
 
-usersRouter.get("/", (req, res) => {
-  res.send({
-    users: [],
-  });
-});
-
 usersRouter.post("/login", async (req, res, next) => {
   console.log(req.body);
   const { username, password } = req.body;
